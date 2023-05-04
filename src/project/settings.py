@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.gis",
     "rest_framework",
+    "corsheaders",
     # https://stackoverflow.com/questions/62815725/django-myapp-vs-myapp-apps-myappconfig-in-settings-py-installed-apps
     "app_basic.apps.AppBasicConfig",
     "app_gis.apps.AppGisConfig",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -72,6 +74,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "project.wsgi.application"
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

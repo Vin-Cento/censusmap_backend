@@ -41,7 +41,7 @@ for (root, dirs, file) in os.walk(dirname(__file__)):
             )
             polyDf["CENSUSCODE"] = polyDf["CENSUSCODE"].str.lstrip("0")
             engine = create_engine(
-                "postgresql://postgres:@localhost:5433/geojson_website"
+                "postgresql://postgres:@localhost:5432/census_data"
             )
 
             # sort
@@ -49,4 +49,3 @@ for (root, dirs, file) in os.walk(dirname(__file__)):
             polyDf.columns = [x.lower() for x in col]
             gc.collect
             polyDf.to_postgis("censustract", engine, index=False, if_exists="append")
-            exit()

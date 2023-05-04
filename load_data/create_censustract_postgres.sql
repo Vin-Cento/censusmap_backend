@@ -1,4 +1,5 @@
 CREATE TABLE IF NOT EXISTS censustract (
+  censuscode varchar(11) NOT NULL,
   statefp char(2) NOT NULL,
   countyfp char(3) NOT NULL,
   tractce char(6) NOT NULL,
